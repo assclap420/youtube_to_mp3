@@ -12,5 +12,6 @@ try:
     url_box.send_keys(Keys.RETURN)
 except Exception as e:
     print(e)
-# url_box = driver.find_element(By.XPATH,'//*[@id="header-search-input"]')
-# url_box.send_keys("success")
+url_box = driver.find_element(By.XPATH,'//*[@id="header-search-input"]')
+url_box.send_keys("success")
+

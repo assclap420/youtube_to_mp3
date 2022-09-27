@@ -23,7 +23,7 @@ driver = webdriver.Chrome()
 driver.get("https://en.onlymp3.to/")
 
 try:
-    url_box = WebDriverWait(driver, 4).until(EC.element_to_be_clickable((By.ID,"txtUrl")))
+    url_box = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="txtUrl"]')))
     for i in YT_url:
         url_box.send_keys(i)
         url_box.send_keys(Keys.RETURN)
