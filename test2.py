@@ -21,13 +21,13 @@ youtube URL to mp3"""
 driver = webdriver.Chrome()
 driver.get("https://en.onlymp3.to/")
 
-try:
-    url_box = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="txtUrl"]')))
-    for i in YT_url:
-        url_box.send_keys(i)
+for index in range(len(YT_url)):
+    try:
+        url_box = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="txtUrl"]')))
+        url_box.send_keys(YT_url[index])
         url_box.send_keys(Keys.RETURN)
-except Exception as error:
-    print(error)
-
-
+        download_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="btn251003"]/button[1]/a')))
+        download_button.click()
+    except Exception as error:
+        print(error)
 
